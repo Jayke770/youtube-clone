@@ -1,6 +1,6 @@
 import Head from "next/head"
 import { Navbar, Page, List, ListInput, Preloader } from 'konsta/react'
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { config } from '../lib'
 import { Video } from '../components'
 export default function Index({ data }) {
