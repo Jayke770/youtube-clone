@@ -1,5 +1,5 @@
 import Head from "next/head"
-import { Navbar, Page, List, ListInput, Preloader } from 'konsta/react'
+import { Navbar, Page, List, ListInput, Preloader, ListButton } from 'konsta/react'
 import { useState } from "react"
 import { config } from '../lib'
 import { Video } from '../components'
@@ -25,7 +25,6 @@ export default function Index({ data }) {
       setSearchData({ ...searchData, isSearching: false })
     })
   }
-  console.log(searchData)
   return (
     <Page>
       <Head>
@@ -36,15 +35,13 @@ export default function Index({ data }) {
       <List hairlines={false} margin="m-0">
         <ListInput
           placeholder="Search"
-          type="search"
-          onKeyPress={(e) => {
-            if (e.code === 'Enter' && searchData.search && !searchData.isSearching) {
-              setSearchData({ ...searchData, isSearching: true })
-              search()
-            }
-          }}
           onInput={(e) => setSearchData({ ...searchData, search: e.target.value })}
           media={searchData.isSearching && <Preloader size="w-6 h-6" />} />
+        <ListButton
+          onClick={() => {
+            setSearchData({ ...searchData, isSearching: true })
+            search()
+          }}>Search</ListButton>
       </List>
       {/* Search results */}
       {searchData.data.length > 0 && (
