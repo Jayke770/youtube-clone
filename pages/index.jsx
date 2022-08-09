@@ -36,6 +36,7 @@ export default function Index({ data }) {
       <List hairlines={false} margin="m-0">
         <ListInput
           placeholder="Search"
+          type="search"
           onKeyPress={(e) => {
             if (e.code === 'Enter' && searchData.search && !searchData.isSearching) {
               setSearchData({ ...searchData, isSearching: true })
