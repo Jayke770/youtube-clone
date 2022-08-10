@@ -7,7 +7,7 @@ export default function Video({ data }) {
             margin='m-0'
             className='!rounded-lg cursor-pointer'
             header={
-                <NextLink href={data.url} passHref>
+                <NextLink href={`/video/${data.id}`} passHref>
                     <div className="-mx-4 -my-2 relative h-48 lg:h-40">
                         <img
                             alt={data.title}
@@ -17,13 +17,13 @@ export default function Video({ data }) {
                 </NextLink>
             }>
             <div className='flex gap-3'>
-                <div className='flex-[15%]'>
+                <div className='flex-[48px]'>
                     <img
                         alt={data.title}
                         src={data.author.bestAvatar.url}
                         className="h-12 w-12 object-cover rounded-full" />
                 </div>
-                <div className='flex-[85%]'>
+                <div className='flex-[calc(100%-48px)]'>
                     <div>
                         <span>{data.title.length > 30 ? `${data.title.substring(0, 30)}...` : data.title}</span>
                     </div>
